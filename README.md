@@ -56,6 +56,14 @@ The `spark-hadoop.yml` ansible playbook runs the necessary roles to deploy the f
 
 The playbook will automatically create user accounts for list of users specified in the `users` variable in `user_data/user-defines.yml`. For each user you must  include his/her public key named `<username>.key.pub` in `roles/common/files/user_keys`. These public keys will be injected into their `authorized_key` file. 
 
+To give users access to `jupyterhub` you can also specify hashed passwords in the `user_data/user-passwords.yml` file. To get the password hash, run 
+
+```
+python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())"
+```
+
+See the two template files in `user_data` for proper formatting and syntax. 
+
 ### Running the playbook 
 
 The playbook is organized into roles, each of which deploys one of the components. The role layout looks like this: 
