@@ -1,11 +1,13 @@
 # Setting up a stand-alone spark cluster on OpenStack
 
 
-The ansible playbooks here enable the deployment of a [Spark](http://spark.apache.org) + [Hadoop](http://hadoop.apache.org) + [Jupyterhub](https://github.com/jupyter/jupyterhub) + [thunder](http://thunder-project.org/) cluster for neuroscience "Big Data" analysis on OpenStack. 
+The ansible playbooks here enable the deployment of a [Spark](http://spark.apache.org) + [Hadoop](http://hadoop.apache.org) + [Jupyterhub](https://github.com/jupyter/jupyterhub) cluster for "Big Data" analysis on OpenStack. 
 
 The open stack dymamic inventory code presented here is adapted from: https://github.com/lukaspustina/dynamic-inventory-for-ansible-with-openstack
 
-Currently, `Spark` and `Jupyterhub` are controlled as services via `supervisord` while standard scripts are used for Hadoop daemons. 
+For convenience, we also include a configuration template in the `ec_scripts` directory to be used with [`elasticluster`](https://github.com/gc3-uzh-ch/elasticluster).
+
+All the services (`spark`, `hadoop`, `jupyterhub`) are controlled via [`supervisord`](http://supervisord.org/).
 
 ## Preamble
 
@@ -19,7 +21,7 @@ sudo pip install python-novaclient
 ```
 - Clone this repository:
 ```
-git clone https://github.com/uzh/helmchen-spark
+git clone https://github.com/rokroskar/ansible_spark_openstack
 ```
 - Create the `roles/common/files` directory and create passwordless ssh keys there using `ssh-keygen` - these are used for authentication among the nodes: 
 ```

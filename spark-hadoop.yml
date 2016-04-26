@@ -22,10 +22,7 @@
     - common
     - {role: supervisord, tags: supervisor}
     - {role: miniconda, tags: miniconda}
-    - {role: thunder, 
-       tags: thunder, 
-       environment: {PATH: "/usr/local/miniconda/bin:{{ ansible_env.PATH }}"}}
-
+    
 #
 # Starting up spark, hadoop, and jupyterhub
 # 
