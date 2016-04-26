@@ -2,5 +2,6 @@ files
 *.retry
 *pyc
 *~
-user_data
+user_data/user-defines.yml
+user_data/user-passwords.yml
 ec_scripts/ec_config_spark
